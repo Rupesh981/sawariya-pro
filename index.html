@@ -2,12 +2,48 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/svg+xml" href="/sawariya-pro/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>sawariya-pro</title>
+    <title>Sawariya Diagnostic - Premium Medical Laboratory</title>
+    <meta name="description" content="Sawariya Diagnostic - NABL Accredited Medical Laboratory. Book home sample collection, health packages, and diagnostic tests online." />
+    <meta property="og:title" content="Sawariya Diagnostic - Premium Medical Laboratory" />
+    <meta property="og:description" content="NABL Accredited Medical Laboratory. Home sample collection, health packages, and diagnostic tests." />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="/sawariya-pro/og-image.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Sawariya Diagnostic" />
+    <meta name="twitter:description" content="NABL Accredited Medical Laboratory" />
   </head>
   <body>
-    <div id="root"></div>
+    <div id="root">
+      <!-- Loading state -->
+      <div style="
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+        background: linear-gradient(135deg, #0f766e 0%, #064e3b 100%);
+        color: white;
+        font-family: system-ui, sans-serif;
+        padding: 20px;
+        text-align: center;
+      ">
+        <div style="
+          width: 48px;
+          height: 48px;
+          border: 4px solid rgba(255,255,255,0.3);
+          border-top-color: white;
+          border-radius: 50%;
+          animation: spin 1s linear infinite;
+          margin-bottom: 16px;
+        "></div>
+        <p style="font-size: 18px; margin: 0;">Loading Sawariya Diagnostic...</p>
+      </div>
+      <style>
+        @keyframes spin { to { transform: rotate(360deg); } }
+      </style>
+    </div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
