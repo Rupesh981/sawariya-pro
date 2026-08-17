@@ -1,0 +1,215 @@
+@import "tailwindcss";
+
+@theme {
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+
+  /* Custom accent colors */
+  --color-accent-blue: hsl(var(--accent-blue));
+  --color-accent-emerald: hsl(var(--accent-emerald));
+  --color-accent-purple: hsl(var(--accent-purple));
+  --color-accent-teal: hsl(var(--accent-teal));
+  --color-accent-orange: hsl(var(--accent-orange));
+
+  --radius-lg: var(--radius);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-sm: calc(var(--radius) - 4px);
+
+  --font-sans: "Plus Jakarta Sans", system-ui, sans-serif;
+  --font-heading: "Plus Jakarta Sans", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+
+  --animate-accordion-down: accordion-down 0.2s ease-out;
+  --animate-accordion-up: accordion-up 0.2s ease-out;
+  --animate-fade-in: fade-in 0.5s ease-out;
+  --animate-slide-up: slide-up 0.5s ease-out;
+  --animate-slide-down: slide-down 0.5s ease-out;
+  --animate-slide-in-left: slide-in-left 0.6s ease-out;
+  --animate-slide-in-right: slide-in-right 0.6s ease-out;
+  --animate-float-gentle: float-gentle 3s ease-in-out infinite;
+}
+
+@keyframes accordion-down {
+  from { height: 0; }
+  to { height: var(--radix-accordion-content-height); }
+}
+
+@keyframes accordion-up {
+  from { height: var(--radix-accordion-content-height); }
+  to { height: 0; }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slide-up {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slide-down {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slide-in-left {
+  from { opacity: 0; transform: translateX(-30px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes slide-in-right {
+  from { opacity: 0; transform: translateX(30px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes float-gentle {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+    --primary: 174 75% 40%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: 174 75% 95%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 174 75% 40%;
+    --radius: 0.75rem;
+
+    /* Custom accent colors - HSL values */
+    --accent-blue: 199 89% 45%;
+    --accent-emerald: 160 84% 39%;
+    --accent-purple: 262 83% 58%;
+    --accent-teal: 174 75% 40%;
+    --accent-orange: 25 95% 53%;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 174 75% 40%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+    --accent: 174 75% 20%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 174 75% 40%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+}
+
+@layer utilities {
+  .glass-card {
+    @apply bg-background/50 backdrop-blur-sm border border-border/50;
+  }
+  .medical-shadow {
+    @apply shadow-[0_4px_14px_-2px_hsl(var(--accent-teal)/0.15)];
+  }
+  .gentle-animation {
+    @apply transition-all duration-300 ease-out;
+  }
+  .text-balance {
+    text-wrap: balance;
+  }
+  .animate-float-gentle {
+    animation: float-gentle 3s ease-in-out infinite;
+  }
+  .animation-delay-1000 {
+    animation-delay: 1s;
+  }
+  .animation-delay-2000 {
+    animation-delay: 2s;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-accent-teal text-white hover:bg-accent-teal/90 active:bg-accent-teal/80
+           transition-colors duration-200 rounded-xl font-medium;
+  }
+  .btn-secondary {
+    @apply bg-secondary text-secondary-foreground hover:bg-secondary/80
+           transition-colors duration-200 rounded-xl font-medium;
+  }
+  .btn-outline {
+    @apply border-2 border-border bg-transparent hover:bg-accent-teal/10 hover:border-accent-teal
+           transition-all duration-200 rounded-xl font-medium;
+  }
+  .btn-ghost {
+    @apply bg-transparent hover:bg-accent-teal/10
+           transition-colors duration-200 rounded-xl font-medium;
+  }
+  .input-field {
+    @apply w-full h-12 px-4 rounded-xl border-2 border-border bg-background
+           placeholder:text-muted-foreground
+           focus:border-accent-teal focus:outline-none focus:ring-2 focus:ring-accent-teal/20
+           transition-all duration-200;
+  }
+  .section-container {
+    @apply container mx-auto px-6 sm:px-8 lg:px-12;
+  }
+  .section-header {
+    @apply text-center mb-16;
+  }
+  .section-badge {
+    @apply inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium mb-6;
+  }
+  .section-title {
+    @apply text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-4;
+  }
+  .section-subtitle {
+    @apply text-lg text-muted-foreground max-w-2xl mx-auto;
+  }
+}
